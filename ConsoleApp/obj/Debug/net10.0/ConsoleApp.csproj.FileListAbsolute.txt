@@ -12,3 +12,4 @@ C:\Users\niels\source\repos\exercises-csharp-advancedtopics\ConsoleApp\obj\Debug
 C:\Users\niels\source\repos\exercises-csharp-advancedtopics\ConsoleApp\obj\Debug\net10.0\ConsoleApp.pdb
 C:\Users\niels\source\repos\exercises-csharp-advancedtopics\ConsoleApp\obj\Debug\net10.0\ConsoleApp.genruntimeconfig.cache
 C:\Users\niels\source\repos\exercises-csharp-advancedtopics\ConsoleApp\obj\Debug\net10.0\ref\ConsoleApp.dll
+C:\Users\niels\source\repos\exercises-csharp-advancedtopics\ConsoleApp\obj\Debug\net10.0\ConsoleApp.sourcelink.json
