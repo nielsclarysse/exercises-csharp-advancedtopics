@@ -47,7 +47,7 @@ Main();*/
 // * EX1 - C *
 // ***********
 
-FactorialResult factorialResult = Calculate(10);
+/*FactorialResult factorialResult = Calculate(10);
 Console.WriteLine(factorialResult.Value);
 
 static FactorialResult Calculate(int n)
@@ -60,4 +60,30 @@ static FactorialResult Calculate(int n)
     return new FactorialResult(n, result);
 }
 
-public record FactorialResult(int Number, long Value);
+public record FactorialResult(int Number, long Value);*/
+
+// *******
+// * EX2 *
+// *******
+
+// Zonder classes of records.
+// Dit omdat het iets simpeler maakt om de switch expression te demonstreren.
+var groups = new[]
+{
+    new { GroupName = "1TI", Teacher = new { Name = "Alice" }, Students = new[] { "Student1", "Student2" } },
+    new { GroupName = "2TI", Teacher = new { Name = "Bob" }, Students = new[] { "Student1", "Student2", "Student3" } },
+    new { GroupName = "3TI", Teacher = new { Name = "Charlie" }, Students = Array.Empty<string>() }
+};
+
+foreach (var group in groups)
+{
+    var message = group switch
+    {
+        { Teacher: { Name: string name } } when name.StartsWith("P") => $"Group name: {group.GroupName}",
+        { GroupName: "2TI", Students.Length: > 2 } => $"Group: {group.GroupName}, Teacher: {group.Teacher.Name}",
+        { Students.Length: > 0 } => $"Group: {group.GroupName}, Student Count: {group.Students.Length}",
+        _ => "No matching criteria met."
+    };
+
+    Console.WriteLine(message);
+}
