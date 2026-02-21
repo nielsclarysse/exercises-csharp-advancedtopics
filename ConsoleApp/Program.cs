@@ -2,7 +2,7 @@
 // * EX1 - A *
 // ***********
 
-IEnumerable<int> Fibonacci(int length)
+/*IEnumerable<int> Fibonacci(int length)
 {
     (int a, int b) = (0, 1);
 
@@ -16,14 +16,14 @@ IEnumerable<int> Fibonacci(int length)
 
 foreach (int i in Fibonacci(10))
 {
-    //Console.WriteLine(i);
-}
+    Console.WriteLine(i);
+}*/
 
 // ***********
 // * EX1 - B *
 // ***********
 
-static void Main()
+/*static void Main()
 {
     Console.WriteLine("Please enter a text: ");
     string myText = Console.ReadLine().Trim().ToLower();
@@ -41,4 +41,23 @@ static IEnumerable<char> Reverse(string text)
     }
 }
 
-//Main();
+Main();*/
+
+// ***********
+// * EX1 - C *
+// ***********
+
+FactorialResult factorialResult = Calculate(10);
+Console.WriteLine(factorialResult.Value);
+
+static FactorialResult Calculate(int n)
+{
+    long result = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        result *= i;
+    }
+    return new FactorialResult(n, result);
+}
+
+public record FactorialResult(int Number, long Value);
