@@ -66,7 +66,7 @@ public record FactorialResult(int Number, long Value);*/
 // * EX2 *
 // *******
 
-// Zonder classes of records.
+/*// Zonder classes of records.
 // Dit omdat het iets simpeler maakt om de switch expression te demonstreren.
 var groups = new[]
 {
@@ -86,4 +86,6 @@ foreach (var group in groups)
     };
 
     Console.WriteLine(message);
-}
+}*/
+
+// EX3-4 will be kept as preperation for the exam.
