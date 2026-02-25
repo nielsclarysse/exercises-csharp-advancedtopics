@@ -1,4 +1,7 @@
-﻿// ***********
+﻿using MyExtensions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+// ***********
 // * EX1 - A *
 // ***********
 
@@ -89,3 +92,21 @@ foreach (var group in groups)
 }*/
 
 // EX3-4 will be kept as preperation for the exam.
+
+// ***********
+// * EX5 - B *
+// ***********
+
+int number = 5;
+Console.WriteLine(number.IsOdd());
+
+namespace MyExtensions
+{
+    public static class IntegerExtensions
+    {
+        extension(int value)
+        {
+            public bool IsOdd() => value % 2 == 0;
+        }
+    }
+}
