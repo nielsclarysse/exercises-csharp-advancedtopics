@@ -1,5 +1,4 @@
 ﻿using MyExtensions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 // ***********
 // * EX1 - A *
@@ -97,7 +96,7 @@ foreach (var group in groups)
 // * EX5 - B *
 // ***********
 
-int number = 5;
+/*int number = 5;
 Console.WriteLine(number.IsOdd());
 
 namespace MyExtensions
@@ -107,6 +106,24 @@ namespace MyExtensions
         extension(int value)
         {
             public bool IsOdd() => value % 2 == 0;
+        }
+    }
+}*/
+
+// ***********
+// * EX5 - C *
+// ***********
+
+string text = "Hello World!";
+Console.WriteLine(text.CountChar());
+
+namespace MyExtensions
+{
+    public static class StringExtensions
+    {
+        extension(string text)
+        {
+            public int CountChar() => text.Trim().Count();
         }
     }
 }
