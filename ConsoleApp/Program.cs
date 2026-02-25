@@ -114,7 +114,7 @@ namespace MyExtensions
 // * EX5 - C *
 // ***********
 
-string text = "Hello World!";
+/*string text = "Hello World!";
 Console.WriteLine(text.CountChar());
 
 namespace MyExtensions
@@ -125,5 +125,68 @@ namespace MyExtensions
         {
             public int CountChar() => text.Trim().Count();
         }
+    }
+}*/
+
+// *******
+// * EX6 *
+// *******
+
+public class KeyValuePairList<TKey, TValue>
+{
+    private List<(TKey Key, TValue Value)> _items = new List<(TKey, TValue)>();
+
+    public void Add(TKey key, TValue value)
+    {
+        if (ContainsKey(key))
+        {
+            throw new ArgumentException("An item with the same key has already been added.");
+        }
+        _items.Add((key, value));
+    }
+
+    public void Clear()
+    {
+        _items.Clear();
+    }
+
+    public bool Remove(TKey key)
+    {
+        int index = _items.FindIndex(item => EqualityComparer<TKey>.Default.Equals(item.Key, key));
+        if (index >= 0)
+        {
+            _items.RemoveAt(index);
+            return true;
+        }
+        return false;
+    }
+
+    public int Count => _items.Count;
+
+    public IEnumerable<TKey> Keys
+    {
+        get
+        {
+            foreach (var item in _items)
+            {
+                yield return item.Key;
+            }
+        }
+    }
+
+    public IEnumerable<TValue> Values
+    {
+        get
+        {
+            foreach (var item in _items)
+            {
+                yield return item.Value;
+            }
+        }
+    }
+
+    private bool ContainsKey(TKey key)
+    {
+        return _items.Exists(item => EqualityComparer<TKey>.Default.Equals(item.Key, key));
     }
 }
